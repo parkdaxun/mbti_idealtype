@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:mbti_idealtype/signup.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
@@ -111,7 +112,7 @@ class _LoginPageState extends State<login> {
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Text(
-                        "완료",
+                        "로그인",
                         style: TextStyle(color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -124,14 +125,22 @@ class _LoginPageState extends State<login> {
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.only(top:13),
-                      child: Text(
-                        "테스트가 처음이신가요?",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
+                    padding: const EdgeInsets.only(top:10.0),
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => signup()),
+                          );
+                        },
+                        child: Text(
+                          '테스트가 처음이신가요?',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
+                    ),
                   ),
                 ],
               ),
