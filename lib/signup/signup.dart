@@ -1,5 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:mbti_idealtype/signup/setmbti.dart';
+
+import '../home.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -142,7 +145,13 @@ class _SignupPageState extends State<signup> {
                   Padding(
                     padding: const EdgeInsets.only(top: 54.0),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => setmbti()),
+                        );
+                      },
                       child: Text(
                         "다음",
                         style: TextStyle(color: Colors.white),

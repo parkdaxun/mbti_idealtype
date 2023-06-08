@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:mbti_idealtype/signup.dart';
+import 'package:mbti_idealtype/signup/signup.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
