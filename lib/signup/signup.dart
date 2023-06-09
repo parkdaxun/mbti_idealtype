@@ -131,7 +131,7 @@ class _SignupPageState extends State<signup> {
                             filled: true,
                             fillColor: Color(0xffF5F5F5),
                           ),
-                          controller: password,
+                          controller: checkpassword,
                         ),
                       ),
                     ],

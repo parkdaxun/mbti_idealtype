@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset('assets/splashscreen.png'), // assets 폴더에 추가한 이미지를 사용하여 화면에 표시
+        child: Image.asset('assets/logo.png'), // assets 폴더에 추가한 이미지를 사용하여 화면에 표시
       ),
     );
   }

@@ -72,7 +72,7 @@ class _SetMBTIPageState extends State<setmbti> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => home()),
+                              builder: (context) => Home()),
                         );
                       },
                       child: Text(
