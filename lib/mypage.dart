@@ -11,6 +11,8 @@ class mypage extends StatefulWidget {
 }
 
 class _MyPageState extends State<mypage> {
+  User? inputData = InputData.inputData;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +98,9 @@ class _MyPageState extends State<mypage> {
   }
 
   Padding MyInfo() {
+    String email = inputData?.email ?? "";
+    String password = inputData?.password ?? "";
+
     return Padding(
       padding: const EdgeInsets.only(top: 100),
       child: Column(
@@ -123,7 +128,7 @@ class _MyPageState extends State<mypage> {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  'parkde0207@gmail.com',
+                  '$email',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14.0,
@@ -155,7 +160,7 @@ class _MyPageState extends State<mypage> {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  '8781',
+                  '$password',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14.0,

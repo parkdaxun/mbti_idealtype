@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mbti_idealtype/signup/signup.dart';
 
+import 'home.dart';
+
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
 
@@ -9,16 +11,26 @@ class login extends StatefulWidget {
   State<login> createState() => _LoginPageState();
 }
 
+class InputData {
+  static User? inputData;
+}
+
 class _LoginPageState extends State<login> {
-  final email = TextEditingController();
-  final password = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future<void> Login(String email, String password) async {
+    User user = User(email : email, password : password);
+    InputData.inputData = user;
+  }
+
   bool _isButtonEnable = false;
 
   void _updateButtonState() {
     // 버튼이 활성화
     setState(() {
       _isButtonEnable =
-          email.text.isNotEmpty && password.text.isNotEmpty;
+          emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
     });
   }
 
@@ -56,7 +68,7 @@ class _LoginPageState extends State<login> {
                         width: 360,
                         height: 48,
                         child: TextField(
-                          controller: email,
+                          controller: emailController,
                           decoration: InputDecoration(
                             hintText: '이메일을 입력해주세요.',
                             border: OutlineInputBorder(
@@ -97,7 +109,10 @@ class _LoginPageState extends State<login> {
                               filled: true,
                               fillColor: Color(0xffF5F5F5),
                             ),
-                            controller: password,
+                            onChanged: (value) {
+                              _updateButtonState();
+                            },
+                            controller: passwordController,
                         ),
                       ),
                     ],
@@ -111,7 +126,14 @@ class _LoginPageState extends State<login> {
                   Padding(
                     padding: const EdgeInsets.only(top: 54.0),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Login(emailController.text, passwordController.text);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Home()),
+                        );
+                      },
                       child: Text(
                         "로그인",
                         style: TextStyle(color: Colors.white),
@@ -151,4 +173,11 @@ class _LoginPageState extends State<login> {
       ),
     );
   }
+}
+
+class User {
+  final String password;
+  final String email;
+
+  User({required this.email, required this.password});
 }

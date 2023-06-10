@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
+import '../class/UserData.dart';
 import '../home.dart';
 
 class setmbti extends StatefulWidget {
@@ -10,7 +11,19 @@ class setmbti extends StatefulWidget {
   State<setmbti> createState() => _SetMBTIPageState();
 }
 
+class UserDataProvider extends ChangeNotifier {
+  UserData _userData = UserData(mymbti: '');
+  UserData get userData => _userData;
+
+  void updateUserData(String mbti) {
+    _userData = UserData(mymbti: mbti);
+    notifyListeners();
+  }
+}
+
 class _SetMBTIPageState extends State<setmbti> {
+  final MBTIController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +60,7 @@ class _SetMBTIPageState extends State<setmbti> {
                         width: 360,
                         height: 48,
                         child: TextField(
+                          controller: MBTIController,
                           decoration: InputDecoration(
                             hintText: 'MBTI를 입력해주세요',
                             border: OutlineInputBorder(
@@ -56,6 +70,7 @@ class _SetMBTIPageState extends State<setmbti> {
                             filled: true,
                             fillColor: Color(0xffF5F5F5),
                           ),
+
                         ),
                       ),
                     ],
