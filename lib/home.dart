@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mbti_idealtype/beforetest.dart';
 import 'package:mbti_idealtype/mypage.dart';
 
+import 'login.dart';
+
 
 class Home extends StatelessWidget {
   @override
@@ -67,15 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class HomeScreen extends StatelessWidget {
+  User? inputData = InputData.inputData;
+
   @override
   Widget build(BuildContext context) {
+    String mymbti = inputData?.myMBTI ?? "";
+
     return Center(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(top:200),
             child: Text(
-              '나의 MBTI는 INFJ',
+              '나의 MBTI는 $mymbti',
               style: TextStyle(color: Color(0xff738D56), fontSize: 16.0,
               ),
             ),

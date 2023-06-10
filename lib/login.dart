@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:mbti_idealtype/signup/setmbti.dart';
 import 'package:mbti_idealtype/signup/signup.dart';
 
 import 'home.dart';
@@ -20,7 +21,7 @@ class _LoginPageState extends State<login> {
   final passwordController = TextEditingController();
 
   Future<void> Login(String email, String password) async {
-    User user = User(email : email, password : password);
+    User user = User(email : email, password : password, myMBTI: '', idealMBTI: '');
     InputData.inputData = user;
   }
 
@@ -131,7 +132,7 @@ class _LoginPageState extends State<login> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Home()),
+                              builder: (context) => setmbti()),
                         );
                       },
                       child: Text(
@@ -154,7 +155,7 @@ class _LoginPageState extends State<login> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => signup()),
+                                builder: (context) => setmbti()),
                           );
                         },
                         child: Text(
@@ -178,6 +179,8 @@ class _LoginPageState extends State<login> {
 class User {
   final String password;
   final String email;
+  final String myMBTI;
+  final String idealMBTI;
 
-  User({required this.email, required this.password});
+  User({required this.email, required this.password, required this.myMBTI, required this.idealMBTI});
 }

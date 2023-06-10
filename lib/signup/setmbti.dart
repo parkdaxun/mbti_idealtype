@@ -1,8 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-
-import '../class/UserData.dart';
+import 'package:mbti_idealtype/mypage.dart';
 import '../home.dart';
+import '../login.dart';
 
 class setmbti extends StatefulWidget {
   const setmbti({Key? key}) : super(key: key);
@@ -11,18 +10,16 @@ class setmbti extends StatefulWidget {
   State<setmbti> createState() => _SetMBTIPageState();
 }
 
-class UserDataProvider extends ChangeNotifier {
-  UserData _userData = UserData(mymbti: '');
-  UserData get userData => _userData;
-
-  void updateUserData(String mbti) {
-    _userData = UserData(mymbti: mbti);
-    notifyListeners();
-  }
-}
-
 class _SetMBTIPageState extends State<setmbti> {
+  User? inputData = InputData.inputData;
   final MBTIController = TextEditingController();
+
+  Future<void> Ready(String mymbti) async {
+    String email = inputData?.email ?? "";
+    String password = inputData?.password ?? "";
+    User user = User(email: '$email', password: '$password', myMBTI: mymbti, idealMBTI: '');
+    InputData.inputData = user;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class _SetMBTIPageState extends State<setmbti> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          '회원가입',
+          '로그인',
           style: TextStyle(color: Color(0xff738D56)),
         ),
         elevation: 0.0,
@@ -84,6 +81,7 @@ class _SetMBTIPageState extends State<setmbti> {
                     padding: const EdgeInsets.only(top: 70.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        Ready(MBTIController.text);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

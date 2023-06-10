@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-
 import 'login.dart';
 
 class mypage extends StatefulWidget {
@@ -36,6 +35,8 @@ class _MyPageState extends State<mypage> {
   }
 
   Padding MBTI() {
+    String mymbti = inputData?.myMBTI ?? "";
+
     return Padding(
       padding: const EdgeInsets.only(top: 100),
       child: Row(
@@ -45,7 +46,7 @@ class _MyPageState extends State<mypage> {
             child: Column(
               children: [
                 Text(
-                  'INFJ',
+                  '$mymbti',
                   style: TextStyle(
                     fontSize: 53,
                     color: Color(0xff738D56),
@@ -100,6 +101,7 @@ class _MyPageState extends State<mypage> {
   Padding MyInfo() {
     String email = inputData?.email ?? "";
     String password = inputData?.password ?? "";
+    String mymbti = inputData?.myMBTI ?? "";
 
     return Padding(
       padding: const EdgeInsets.only(top: 100),
