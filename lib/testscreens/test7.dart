@@ -65,7 +65,7 @@ class _Test7PageState extends State<test7> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Text(
-              '나는 애인이 퇴근한 후',
+              '나는 애인에게 헤어지자고 했다. 그러자 애인은?',
               style: TextStyle(
                 color: Color(0xff738D56),
                 fontSize: 16.0,
@@ -97,7 +97,7 @@ class _Test7PageState extends State<test7> {
                 );
               },
               child: Text(
-                '인싸답게 친구들과의 모임을 즐기면 좋겠어',
+                '내가 잘못했어. 우리 다시 잘해보자',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -119,7 +119,7 @@ class _Test7PageState extends State<test7> {
                   );
                 },
                 child: Text(
-                  '집순(돌)이라서 집에서 혼자만의 시간을 가지면 좋겠어',
+                  '우리 왜 헤어져. 내가 잘못한거 있어?',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

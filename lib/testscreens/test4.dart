@@ -65,7 +65,7 @@ class _Test4PageState extends State<test4> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Text(
-              '나는 애인이 퇴근한 후',
+              '나는 나의 애인과',
               style: TextStyle(
                 color: Color(0xff738D56),
                 fontSize: 16.0,
@@ -97,7 +97,7 @@ class _Test4PageState extends State<test4> {
                 );
               },
               child: Text(
-                '인싸답게 친구들과의 모임을 즐기면 좋겠어',
+                '몇분 안 만나더라도 매일 만나고 싶어!',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -119,7 +119,7 @@ class _Test4PageState extends State<test4> {
                   );
                 },
                 child: Text(
-                  '집순(돌)이라서 집에서 혼자만의 시간을 가지면 좋겠어',
+                  '일주일에 1~2번 만나 그 하루가 특별하고 싶어',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

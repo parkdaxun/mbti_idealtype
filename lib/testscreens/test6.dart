@@ -65,7 +65,7 @@ class _Test6PageState extends State<test6> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Text(
-              '나는 애인이 퇴근한 후',
+              '애인과 어떤 대회가 더 즐거울까',
               style: TextStyle(
                 color: Color(0xff738D56),
                 fontSize: 16.0,
@@ -97,7 +97,7 @@ class _Test6PageState extends State<test6> {
                 );
               },
               child: Text(
-                '인싸답게 친구들과의 모임을 즐기면 좋겠어',
+                '갑자기 좀비가 나타나면 어떡하지',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -119,7 +119,7 @@ class _Test6PageState extends State<test6> {
                   );
                 },
                 child: Text(
-                  '집순(돌)이라서 집에서 혼자만의 시간을 가지면 좋겠어',
+                  '날씨가 더워서 보일러가 터질 것 같은데',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

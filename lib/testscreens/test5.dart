@@ -65,7 +65,7 @@ class _Test5PageState extends State<test5> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Text(
-              '나는 애인이 퇴근한 후',
+              '추운 겨울에 갑자기 시원한 커피가 먹고 싶어진 \n당신! 애인에게 말하자 애인은',
               style: TextStyle(
                 color: Color(0xff738D56),
                 fontSize: 16.0,
@@ -97,7 +97,7 @@ class _Test5PageState extends State<test5> {
                 );
               },
               child: Text(
-                '인싸답게 친구들과의 모임을 즐기면 좋겠어',
+                '너무 춥다 넌 여기 있어. 내가 갔다올게',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -119,7 +119,7 @@ class _Test5PageState extends State<test5> {
                   );
                 },
                 child: Text(
-                  '집순(돌)이라서 집에서 혼자만의 시간을 가지면 좋겠어',
+                  '따뜻하게 입고 가자. 같이 가면 더 따뜻해',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
