@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
+import '../home.dart';
+
 class result extends StatefulWidget {
   const result({Key? key}) : super(key: key);
 
@@ -12,9 +14,12 @@ class _ResultPageState extends State<result> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          children: [
-            Padding(
+        body: GestureDetector(
+      onHorizontalDragUpdate: (_) {},
+      child: Column(
+        children: [
+          Center(
+            child: Padding(
               padding: const EdgeInsets.only(top: 54),
               child: SizedBox(
                 width: 87,
@@ -33,39 +38,53 @@ class _ResultPageState extends State<result> {
                 ),
               ),
             ),
-          ],
-        ));
+          ),
+          ShowMBTI(),
+          showInfo(),
+          Isitok(),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+              },
+              child: Text(
+                '돌아가기',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 
-  Padding Testname() {
+  Padding ShowMBTI() {
     return Padding(
-      padding: const EdgeInsets.only(top: 200, left: 40),
-      child: Row(
+      padding: const EdgeInsets.only(top: 41),
+      child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Container(
-              width: 22,
-              height: 22,
-              decoration: BoxDecoration(
-                color: Color(0xff74C6A4),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Text(
-                  '1',
-                  style: TextStyle(color: Colors.white),
-                ),
+            padding: const EdgeInsets.only(top: 43),
+            child: Text(
+              '이상형 MBTI는',
+              style: TextStyle(
+                color: Color(0xff738D56),
+                fontSize: 16.0,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(top: 5),
             child: Text(
-              '나는 애인이 퇴근한 후',
+              'ENTP',
               style: TextStyle(
                 color: Color(0xff738D56),
-                fontSize: 16.0,
+                fontSize: 53.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
@@ -74,43 +93,44 @@ class _ResultPageState extends State<result> {
     );
   }
 
-  Padding SelectOne() {
+  Padding showInfo() {
     return Padding(
       padding: const EdgeInsets.only(top: 41),
-      child: Column(
-        children: [
-          Container(
-            width: 326,
-            height: 43,
-            decoration: BoxDecoration(
-                color: Color(0xff98C26C),
-                borderRadius: BorderRadius.circular(15.0)),
-            child: TextButton(
-              onPressed: () {result();},
-              child: Text(
-                '인싸답게 친구들과의 모임을 즐기면 좋겠어',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+      child: Container(
+        width: 326,
+        height: 286,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            border: Border.all(
+              color: Color(0xff98C26C),
+              width: 3.0,
+            )),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Text(
+            '블라블라',
           ),
-          Padding(
-            padding: const EdgeInsets.only(top:30.0),
-            child: Container(
-              width: 326,
-              height: 43,
-              decoration: BoxDecoration(
-                  color: Color(0xff98C26C),
-                  borderRadius: BorderRadius.circular(15.0)),
-              child: TextButton(
-                onPressed: () {result();},
-                child: Text(
-                  '집순(돌)이라서 집에서 혼자만의 시간을 가지면 좋겠어',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
+        ),
+      ),
+    );
+  }
+
+  Padding Isitok() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Container(
+        width: 326,
+        height: 43,
+        decoration: BoxDecoration(
+          color: Color(0xffE56137),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: Text(
+            '나의MBTI와 최악의 궁합',
+            style: TextStyle(color: Colors.white, fontSize: 13),
           ),
-        ],
+        ),
       ),
     );
   }
