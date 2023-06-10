@@ -34,7 +34,8 @@ class _LoginPageState extends State<login> {
         ),
         elevation: 0.0,
       ),
-      body: SingleChildScrollView(
+      body: GestureDetector(
+        onHorizontalDragUpdate: (_) {},
         child: Column(
           children: <Widget>[
             Column(
