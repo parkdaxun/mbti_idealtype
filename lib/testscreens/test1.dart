@@ -14,11 +14,18 @@ class test1 extends StatefulWidget {
 class _Test1PageState extends State<test1> {
 
   Future<void> checkMBTI(int what) async {
-    if(what == 1) {
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
 
+    if(what == 1) {
+      int E = storage.read('E') ?? 0;
+      storage.write('E', E++);
+      print("E");
     }
     else if(what == 2) {
-
+      int I = storage.read('I') ?? 0;
+      storage.write('I', I++);
+      print("I");
     }
   }
 
@@ -125,6 +132,7 @@ class _Test1PageState extends State<test1> {
                   borderRadius: BorderRadius.circular(15.0)),
               child: TextButton(
                 onPressed: () {
+                  checkMBTI(2);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
