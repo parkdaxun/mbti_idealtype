@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-
 import '../home.dart';
+import 'package:get_storage/get_storage.dart';
 
 class result extends StatefulWidget {
   const result({Key? key}) : super(key: key);
