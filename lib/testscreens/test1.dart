@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mbti_idealtype/testscreens/test2.dart';
+import 'package:get_storage/get_storage.dart';
 
 class test1 extends StatefulWidget {
   const test1({Key? key}) : super(key: key);
@@ -9,7 +10,18 @@ class test1 extends StatefulWidget {
   State<test1> createState() => _Test1PageState();
 }
 
+
 class _Test1PageState extends State<test1> {
+
+  Future<void> checkMBTI(int what) async {
+    if(what == 1) {
+
+    }
+    else if(what == 2) {
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +102,7 @@ class _Test1PageState extends State<test1> {
                 borderRadius: BorderRadius.circular(15.0)),
             child: TextButton(
               onPressed: () {
+                checkMBTI(1);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

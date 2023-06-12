@@ -42,7 +42,7 @@ class _LoginPageState extends State<login> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          '로그인',
+          '정보 입력하기',
           style: TextStyle(color: Color(0xff738D56)),
         ),
         elevation: 0.0,
@@ -87,7 +87,7 @@ class _LoginPageState extends State<login> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12.0, top: 12),
                   child: Text(
-                    '비밀번호',
+                    '닉네임',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -102,7 +102,7 @@ class _LoginPageState extends State<login> {
                             decoration: InputDecoration(
                               contentPadding:
                               EdgeInsets.symmetric(horizontal: 12.0),
-                              hintText: '비밀번호를 입력해주세요.',
+                              hintText: '닉네임을 입력해주세요.',
                               border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
                                 borderRadius: BorderRadius.circular(14.0),
@@ -136,7 +136,7 @@ class _LoginPageState extends State<login> {
                         );
                       },
                       child: Text(
-                        "로그인",
+                        "다음",
                         style: TextStyle(color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -146,24 +146,6 @@ class _LoginPageState extends State<login> {
                             borderRadius: BorderRadius.circular(14.0)),
                         minimumSize: Size(360, 48),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top:10.0),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => setmbti()),
-                          );
-                        },
-                        child: Text(
-                          '테스트가 처음이신가요?',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
                     ),
                   ),
                 ],

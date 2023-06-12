@@ -142,7 +142,7 @@ class _MyPageState extends State<mypage> {
           Padding(
             padding: const EdgeInsets.only(top: 30, right: 270, bottom: 9),
             child: Text(
-              '비밀번호',
+              '닉네임',
               textAlign: TextAlign.start,
               style: TextStyle(
                 color: Color(0xff738D56),
@@ -194,7 +194,7 @@ class _MyPageState extends State<mypage> {
             );
           },
           child: Text(
-            '로그아웃',
+            '처음으로 돌아가기',
             style: TextStyle(color: Colors.white),
           ),
         ),

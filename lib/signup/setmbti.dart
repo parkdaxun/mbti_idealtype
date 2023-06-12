@@ -28,7 +28,7 @@ class _SetMBTIPageState extends State<setmbti> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          '로그인',
+          'MBTI 입력',
           style: TextStyle(color: Color(0xff738D56)),
         ),
         elevation: 0.0,
