@@ -11,6 +11,24 @@ class result extends StatefulWidget {
 }
 
 class _ResultPageState extends State<result> {
+  String idealMBTI = "";
+
+  Future<void> writeResult() async {
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
+
+    setState(() {
+      idealMBTI = storage.read('idealMBTI');
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    writeResult();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +98,7 @@ class _ResultPageState extends State<result> {
           Padding(
             padding: const EdgeInsets.only(top: 5),
             child: Text(
-              'ENTP',
+              '$idealMBTI',
               style: TextStyle(
                 color: Color(0xff738D56),
                 fontSize: 53.0,

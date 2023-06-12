@@ -18,12 +18,12 @@ class _Test2PageState extends State<test2> {
 
     if(what == 1) {
       int F = storage.read('F') ?? 0;
-      storage.write('F', F++);
+      storage.write('F', ++F);
       print("F");
     }
     else if(what == 2) {
       int E = storage.read('E') ?? 0;
-      storage.write('E', E++);
+      storage.write('E', ++E);
       print("E");
     }
   }

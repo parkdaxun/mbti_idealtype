@@ -98,7 +98,6 @@ class _LoginPageState extends State<login> {
                       SizedBox(
                         width: 360,
                         child: TextField(
-                            obscureText: true,
                             decoration: InputDecoration(
                               contentPadding:
                               EdgeInsets.symmetric(horizontal: 12.0),

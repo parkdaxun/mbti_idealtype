@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mbti_idealtype/testscreens/result.dart';
+import 'package:get_storage/get_storage.dart';
 
 class test8 extends StatefulWidget {
   const test8({Key? key}) : super(key: key);
@@ -10,35 +11,94 @@ class test8 extends StatefulWidget {
 }
 
 class _Test8PageState extends State<test8> {
+  Future<void> checkMBTI(int what) async {
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
+
+    if (what == 1) {
+      int N = storage.read('N') ?? 0;
+      storage.write('N', ++N);
+      print("N");
+    } else if (what == 2) {
+      int S = storage.read('S') ?? 0;
+      storage.write('S', ++S);
+      print("S");
+    }
+
+    String ideal = "";
+
+    int E = storage.read('E') ?? 0;
+    int I = storage.read('I') ?? 0;
+    int N = storage.read('N') ?? 0;
+    int S = storage.read('S') ?? 0;
+    int F = storage.read('F') ?? 0;
+    int T = storage.read('T') ?? 0;
+    int J = storage.read('J') ?? 0;
+    int P = storage.read('P') ?? 0;
+
+    String EI = "";
+    print(E);
+    print(I);
+    if (E > I) {
+      EI =  "E";
+      print(EI);
+    }
+    else if (E < I) EI = "I";
+    else if(E==I) EI="I";
+
+    print(EI);
+
+    String NS = "";
+    if (N > S)
+      NS = "N";
+    else if (N < S) NS = "S";
+    else if(N == S) NS = "N";
+
+    String FT = "";
+    if (F > T)
+      FT = "F";
+    else if (F < T) FT = "T";
+    else if(F == T) FT = "F";
+
+    String JP = "";
+    if (J > P)
+      JP = "J";
+    else if (J < P) JP = "P";
+    else if(J==P) JP = "P";
+
+    ideal = EI + NS + FT + JP;
+    print(ideal);
+    storage.write('idealMBTI', ideal);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 54),
-              child: SizedBox(
-                width: 87,
-                height: 28,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15), // 테두리의 둥근 정도
-                    color: Color(0xff738D56),
-                  ),
-                  child: Center(
-                    child: Text(
-                      '테스트',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 54),
+          child: SizedBox(
+            width: 87,
+            height: 28,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15), // 테두리의 둥근 정도
+                color: Color(0xff738D56),
+              ),
+              child: Center(
+                child: Text(
+                  '테스트',
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
-            Testname(),
-            SelectOne(),
-          ],
-        ));
+          ),
+        ),
+        Testname(),
+        SelectOne(),
+      ],
+    ));
   }
 
   Padding Testname() {
@@ -91,10 +151,10 @@ class _Test8PageState extends State<test8> {
                 borderRadius: BorderRadius.circular(15.0)),
             child: TextButton(
               onPressed: () {
+                checkMBTI(1);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => result()),
+                  MaterialPageRoute(builder: (context) => result()),
                 );
               },
               child: Text(
@@ -104,7 +164,7 @@ class _Test8PageState extends State<test8> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top:30.0),
+            padding: const EdgeInsets.only(top: 30.0),
             child: Container(
               width: 326,
               height: 43,
@@ -113,10 +173,10 @@ class _Test8PageState extends State<test8> {
                   borderRadius: BorderRadius.circular(15.0)),
               child: TextButton(
                 onPressed: () {
+                  checkMBTI(2);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => result()),
+                    MaterialPageRoute(builder: (context) => result()),
                   );
                 },
                 child: Text(
