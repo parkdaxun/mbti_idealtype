@@ -13,6 +13,7 @@ class mypage extends StatefulWidget {
 class _MyPageState extends State<mypage> {
   User? inputData = InputData.inputData;
   String idealMBTI = "";
+  String myMBTI = "";
 
   Future<void> writeResult() async {
     await GetStorage.init();
@@ -20,7 +21,11 @@ class _MyPageState extends State<mypage> {
 
     setState(() {
       idealMBTI = storage.read('idealMBTI');
+      myMBTI = storage.read('myMBTI');
     });
+
+    print(idealMBTI);
+    print(myMBTI);
   }
 
   @override
@@ -53,8 +58,6 @@ class _MyPageState extends State<mypage> {
   }
 
   Padding MBTI() {
-    String mymbti = inputData?.myMBTI ?? "";
-
     return Padding(
       padding: const EdgeInsets.only(top: 100),
       child: Row(
@@ -64,7 +67,7 @@ class _MyPageState extends State<mypage> {
             child: Column(
               children: [
                 Text(
-                  '$mymbti',
+                  '$myMBTI',
                   style: TextStyle(
                     fontSize: 53,
                     color: Color(0xff738D56),

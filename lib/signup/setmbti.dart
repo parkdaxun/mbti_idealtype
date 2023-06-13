@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbti_idealtype/mypage.dart';
+import 'package:get_storage/get_storage.dart';
 import '../home.dart';
 import '../login.dart';
 
@@ -15,10 +15,13 @@ class _SetMBTIPageState extends State<setmbti> {
   final MBTIController = TextEditingController();
 
   Future<void> Ready(String mymbti) async {
-    String email = inputData?.email ?? "";
-    String password = inputData?.password ?? "";
-    User user = User(email: '$email', password: '$password', myMBTI: mymbti, idealMBTI: '');
-    InputData.inputData = user;
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
+
+    setState(() {
+      storage.write('myMBTI', mymbti);
+    });
+    print(mymbti);
   }
 
   @override

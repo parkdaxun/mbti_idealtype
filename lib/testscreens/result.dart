@@ -12,6 +12,7 @@ class result extends StatefulWidget {
 
 class _ResultPageState extends State<result> {
   String idealMBTI = "";
+  bool flag = false; // false -> 좋은거 true -> 나쁜거
 
   Future<void> writeResult() async {
     await GetStorage.init();
@@ -20,6 +21,44 @@ class _ResultPageState extends State<result> {
     setState(() {
       idealMBTI = storage.read('idealMBTI');
     });
+
+    // 궁합 판단하기
+    MBTIflag();
+  }
+
+  Future<void> MBTIflag() async {
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
+
+    String idealMBTI = storage.read('idealMBTI');
+    String myMBTI = storage.read('myMBTI');
+
+    List<String> onlyISFP = ['INFP', 'ENFP', 'INFJ'];
+    List<String> avoid = ['INFP', 'ENFP', 'INFJ', 'ENFJ'];
+    List<String> avoidit = ['ESFP', 'ISTP', 'ESTP', 'ISFJ', 'ESFJ', 'ISTJ', 'ESTJ'];
+
+    if(idealMBTI=="ISFP") { //이상형 엠비티아이가 ISFP라면
+      bool isitin = onlyISFP.contains(myMBTI); // 그런데 내 엠비티아이가 안 좋은 궁합에 포함
+      if(isitin) flag = true;
+    }
+    else if(myMBTI=="ISFP") { //내 엠비티아이가 ISFP라면
+      bool isitin = onlyISFP.contains(idealMBTI); // 그런데 이상형 엠비티아이가 안 좋은 궁합
+      if(isitin) flag = true;
+    }
+    else { // ISFP가 아니다
+      bool avoid_yes = avoid.contains(myMBTI);
+      bool avoid_it = avoidit.contains(idealMBTI);
+
+      bool avoid_no = avoid.contains(idealMBTI);
+      bool avoid_noit = avoidit.contains(myMBTI);
+      if(avoid_yes && avoid_it) flag = true;
+      else if(avoid_no && avoid_noit) flag = true;
+    }
+
+    setState(() {
+      flag;
+    });
+
   }
 
   @override
@@ -59,7 +98,15 @@ class _ResultPageState extends State<result> {
           ),
           ShowMBTI(),
           showInfo(),
-          Isitok(),
+          Visibility(
+            visible: flag,
+            child: Isitok(),
+          ),
+          Visibility(
+            visible: !flag,
+            child: fine(),
+          ),
+
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: TextButton(
@@ -146,6 +193,26 @@ class _ResultPageState extends State<result> {
         child: Center(
           child: Text(
             '나의MBTI와 최악의 궁합',
+            style: TextStyle(color: Colors.white, fontSize: 13),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding fine() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Container(
+        width: 326,
+        height: 43,
+        decoration: BoxDecoration(
+          color: Color(0xff8EE537),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: Text(
+            '나의MBTI와 괜찮은 궁합',
             style: TextStyle(color: Colors.white, fontSize: 13),
           ),
         ),
