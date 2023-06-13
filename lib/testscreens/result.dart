@@ -70,6 +70,42 @@ class _ResultPageState extends State<result> {
 
   @override
   Widget build(BuildContext context) {
+    String imagePath = "";
+
+    if (idealMBTI == "ENFJ") {
+      imagePath = 'assets/images/ENFJ.jpg';
+    } else if (idealMBTI == "ENFP") {
+      imagePath = 'assets/images/ENFP.jpg';
+    } else if (idealMBTI == "ENTJ") {
+      imagePath = 'assets/images/ENTJ.jpg';
+    } else if (idealMBTI == "ENTP") {
+      imagePath = 'assets/images/ENTP.jpg';
+    } else if (idealMBTI == "ESFJ") {
+      imagePath = 'assets/images/ESFJ.jpg';
+    } else if (idealMBTI == "ESFP") {
+      imagePath = 'assets/images/ESFP.jpg';
+    } else if (idealMBTI == "ESTJ") {
+      imagePath = 'assets/images/ESTJ.jpg';
+    } else if (idealMBTI == "ESTP") {
+      imagePath = 'assets/images/ESTP.jpg';
+    } else if (idealMBTI == "INFJ") {
+      imagePath = 'assets/images/INFJ.jpg';
+    } else if (idealMBTI == "INFP") {
+      imagePath = 'assets/images/INFP.jpg';
+    } else if (idealMBTI == "INTJ") {
+      imagePath = 'assets/images/INTJ.jpg';
+    } else if (idealMBTI == "INTP") {
+      imagePath = 'assets/images/INTP.jpg';
+    } else if (idealMBTI == "ISFJ") {
+      imagePath = 'assets/images/ISFJ.jpg';
+    } else if (idealMBTI == "ISFP") {
+      imagePath = 'assets/images/ISFP.jpg';
+    } else if (idealMBTI == "ISTJ") {
+      imagePath = 'assets/images/ISTJ.jpg';
+    } else if (idealMBTI == "ISTP") {
+      imagePath = 'assets/images/ISTP.jpg';
+    }
+
     return Scaffold(
         body: GestureDetector(
       onHorizontalDragUpdate: (_) {},
@@ -97,7 +133,10 @@ class _ResultPageState extends State<result> {
             ),
           ),
           ShowMBTI(),
-          showInfo(),
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Image.asset(imagePath),
+          ),
           Visibility(
             visible: flag,
             child: Isitok(),
@@ -154,28 +193,6 @@ class _ResultPageState extends State<result> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Padding showInfo() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 41),
-      child: Container(
-        width: 326,
-        height: 286,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
-            border: Border.all(
-              color: Color(0xff98C26C),
-              width: 3.0,
-            )),
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Text(
-            '블라블라',
-          ),
-        ),
       ),
     );
   }

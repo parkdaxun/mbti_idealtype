@@ -15,22 +15,22 @@ class _beforeTestPageState extends State<beforetest> {
   int imageIndex = 0;
 
   List<String> imagePaths = [
-    'assets/image/ENFJ.jpg',
-    'assets/image/ENFP.jpg',
-    'assets/image/ENTJ.jpg',
-    'assets/image/ENTP.jpg',
-    'assets/image/ESFJ.jpg',
-    'assets/image/ESFP.jpg',
-    'assets/image/ESTJ.jpg',
-    'assets/image/ESTP.jpg',
-    'assets/image/INFJ.jpg',
-    'assets/image/INFP.jpg',
-    'assets/image/INTJ.jpg',
-    'assets/image/INTP.jpg',
-    'assets/image/ISFJ.jpg',
-    'assets/image/ISFP.jpg',
-    'assets/image/ISTJ.jpg',
-    'assets/image/ISTP.jpg',
+    'assets/images/ENFJ.jpg',
+    'assets/images/ENFP.jpg',
+    'assets/images/ENTJ.jpg',
+    'assets/images/ENTP.jpg',
+    'assets/images/ESFJ.jpg',
+    'assets/images/ESFP.jpg',
+    'assets/images/ESTJ.jpg',
+    'assets/images/ESTP.jpg',
+    'assets/images/INFJ.jpg',
+    'assets/images/INFP.jpg',
+    'assets/images/INTJ.jpg',
+    'assets/images/INTP.jpg',
+    'assets/images/ISFJ.jpg',
+    'assets/images/ISFP.jpg',
+    'assets/images/ISTJ.jpg',
+    'assets/images/ISTP.jpg',
   ];
 
   void changeImage() {
