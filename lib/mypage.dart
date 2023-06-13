@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'package:get_storage/get_storage.dart';
 
 class mypage extends StatefulWidget {
   const mypage({Key? key}) : super(key: key);
@@ -11,6 +12,23 @@ class mypage extends StatefulWidget {
 
 class _MyPageState extends State<mypage> {
   User? inputData = InputData.inputData;
+  String idealMBTI = "";
+
+  Future<void> writeResult() async {
+    await GetStorage.init();
+    final GetStorage storage = GetStorage();
+
+    setState(() {
+      idealMBTI = storage.read('idealMBTI');
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    writeResult();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +94,7 @@ class _MyPageState extends State<mypage> {
             child: Column(
               children: [
                 Text(
-                  'INFJ',
+                  '$idealMBTI',
                   style: TextStyle(
                     fontSize: 53,
                     color: Color(0xff738D56),
