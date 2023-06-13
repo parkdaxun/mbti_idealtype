@@ -1,7 +1,8 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mbti_idealtype/beforetest.dart';
 import 'package:mbti_idealtype/mypage.dart';
-
 import 'login.dart';
 
 
@@ -73,21 +74,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String mymbti = inputData?.myMBTI ?? "";
-
     return Center(
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top:200),
-            child: Text(
-              '나의 MBTI는 $mymbti',
-              style: TextStyle(color: Color(0xff738D56), fontSize: 16.0,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top:19),
+            padding: const EdgeInsets.only(top:100),
             child: Text(
               '나의 이상형 MBTI는 뭘까?',
               style: TextStyle(color: Color(0xff738D56), fontSize: 16.0,
@@ -98,4 +89,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }

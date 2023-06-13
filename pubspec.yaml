@@ -55,19 +55,30 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  assets:
-    - assets/image/splashscreen.png
-    - assets/image/logo.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/logo.jpg
+    - assets/image/ENFJ.jpg
+    - assets/image/ENFP.jpg
+    - assets/image/ENTJ.jpg
+    - assets/image/ESFP.jpg
+    - assets/image/INFJ.jpg
+    - assets/image/INFP.jpg
+    - assets/image/INTJ.jpg
+    - assets/image/INTP.jpg
+    - assets/image/ISFP.jpg
+    - assets/image/ISFJ.jpg
+    - assets/image/ISTJ.jpg
+    - assets/image/ISTP.jpg
+    - assets/image/ENTP.jpg
+    - assets/image/ESTP.jpg
+    - assets/image/ESTJ.jpg
+    - assets/image/ESFJ.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
