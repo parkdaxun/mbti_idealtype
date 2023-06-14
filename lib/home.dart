@@ -7,13 +7,15 @@ import 'login.dart';
 
 
 class Home extends StatelessWidget {
+  final theme = ThemeData(
+    primaryColor: Color(0xff738D56),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bottom Navigation Bar Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: theme,
       home: MyHomePage(),
     );
   }
@@ -81,7 +83,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top:100),
             child: Text(
               '나의 이상형 MBTI는 뭘까?',
-              style: TextStyle(color: Color(0xff738D56), fontSize: 16.0,
+              style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 16.0,
               ),
             ),
           ),

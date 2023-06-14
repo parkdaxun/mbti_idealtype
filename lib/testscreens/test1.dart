@@ -53,6 +53,14 @@ class _Test1PageState extends State<test1> {
             ),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: 54),
+          child: LinearProgressIndicator(
+            value: 0.15,
+            color: Color(0xff738D56),
+            backgroundColor: Color(0xffb6b6b6),
+          ),
+        ),
         Testname(),
         SelectOne(),
       ],
