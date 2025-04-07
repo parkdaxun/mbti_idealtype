@@ -29,7 +29,7 @@ mbti가 유행하던 당시, 나의 이상형은 어떤 유형의 mbti일까? </
 
 ```bash
 # 프로젝트 클론
-git clone https://github.com/daeun-dev/young-coffee.git
+https://github.com/parkdaxun/mbti_idealtype.git
 
 # Flutter 패키지 설치
 flutter pub get
